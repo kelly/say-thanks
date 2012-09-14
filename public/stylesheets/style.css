@@ -743,48 +743,62 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   -webkit-animation-name: fadein;
 }
 
-/* line 120, style.scss */
+/* line 123, style.scss */
 a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* line 123, style.scss */
+/* line 126, style.scss */
 html * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 126, style.scss */
+/* line 129, style.scss */
 body, textarea, input, select {
   font: 14px Helvetica, Arial, sans-serif;
 }
 
-/* line 129, style.scss */
+/* line 132, style.scss */
+strong {
+  font-weight: bold;
+}
+
+/* line 133, style.scss */
 body {
   color: #aaaaaa;
   padding: 0.5em;
   background: url("/images/bg.png");
 }
 
-/* line 134, style.scss */
+/* line 138, style.scss */
 html, .mobile-viewport {
   overflow: hidden;
   margin: 0;
   height: 99.9%;
 }
 
-/* line 139, style.scss */
+/* line 143, style.scss */
 .mobile-viewport {
   overflow-x: hidden;
 }
 
-/* line 140, style.scss */
+/* line 144, style.scss */
 a {
   color: #00B7FF;
 }
 
-/* line 143, style.scss */
+/* line 148, style.scss */
+h3 {
+  text-shadow: 0 1px 0 white;
+  font-weight: normal;
+  font-size: 1.4em;
+  line-height: 1.1em;
+  text-align: center;
+}
+
+/* line 155, style.scss */
 header {
   background-image: url("/images/header.png");
   -webkit-transform: rotateY(0);
@@ -801,7 +815,7 @@ header {
   background-size: auto 49px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 143, style.scss */
+  /* line 155, style.scss */
   header {
     -webkit-background-size: 320px auto;
     -moz-background-size: 320px auto;
@@ -811,7 +825,59 @@ header {
   }
 }
 
-/* line 156, style.scss */
+/* line 177, style.scss */
+#hero {
+  margin: 50px 0 30px !important;
+  height: 100px;
+  background-image: url("/images/paper-texture.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 177, style.scss */
+  #hero {
+    -webkit-background-size: 180px auto;
+    -moz-background-size: 180px auto;
+    -o-background-size: 180px auto;
+    background-size: 180px auto;
+    background-image: url("/images/paper-texture@2x.png");
+  }
+}
+/* line 185, style.scss */
+#hero .prop-icon, #hero .prop-list .icon, .prop-list #hero .icon, #hero .title {
+  opacity: 0;
+}
+/* line 188, style.scss */
+#hero .prop-icon, #hero .prop-list .icon, .prop-list #hero .icon {
+  opacity: 0.9;
+  margin: -15px 0 0 -15px;
+  float: left;
+}
+/* line 193, style.scss */
+#hero .title {
+  opacity: 0.9;
+  background-image: url("/images/hero-title.png");
+  background-position: 5px 40%;
+  background-repeat: no-repeat;
+  width: 210px;
+  height: 100px;
+  float: left;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 193, style.scss */
+  #hero .title {
+    -webkit-background-size: 200px auto;
+    -moz-background-size: 200px auto;
+    -o-background-size: 200px auto;
+    background-size: 200px auto;
+    background-image: url("/images/hero-title@2x.png");
+  }
+}
+
+/* line 204, style.scss */
+#login-page .section {
+  margin: 30px 0;
+}
+
+/* line 206, style.scss */
 #logo {
   background-image: url("/images/logo.png");
   background-repeat: no-repeat;
@@ -827,7 +893,7 @@ header {
   background-size: auto 36px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 156, style.scss */
+  /* line 206, style.scss */
   #logo {
     -webkit-background-size: 79px auto;
     -moz-background-size: 79px auto;
@@ -837,13 +903,13 @@ header {
   }
 }
 
-/* line 165, style.scss */
+/* line 215, style.scss */
 .page-container {
   -webkit-backface-visibility: hidden;
   -webkit-transform: rotateY(0);
 }
 
-/* line 172, style.scss */
+/* line 222, style.scss */
 .page-container {
   overflow: hidden;
   position: absolute;
@@ -856,26 +922,26 @@ header {
   width: 100%;
   height: 100%;
 }
-/* line 183, style.scss */
+/* line 233, style.scss */
 .page-container.active, .page-container.in, .page-container.out {
   display: block !important;
   opacity: 1;
 }
 
-/* line 188, style.scss */
+/* line 238, style.scss */
 .new-form {
   width: 100%;
 }
 
-/* line 192, style.scss */
+/* line 242, style.scss */
 .stacked-form label, .stacked-form textarea, .stacked-form select, .stacked-form input {
   display: block;
 }
-/* line 195, style.scss */
+/* line 245, style.scss */
 .stacked-form .section {
   margin: 1em 0;
 }
-/* line 198, style.scss */
+/* line 248, style.scss */
 .stacked-form label {
   text-shadow: 0 1px 0 white;
   font-size: 1.2em;
@@ -884,12 +950,12 @@ header {
   color: #aaaaaa;
 }
 
-/* line 206, style.scss */
+/* line 256, style.scss */
 .search-choice {
   line-height: 1.3em !important;
 }
 
-/* line 209, style.scss */
+/* line 259, style.scss */
 .chzn-container {
   position: relative;
   -webkit-transform: rotateY(0);
@@ -897,7 +963,7 @@ header {
   width: 300px;
   border-color: #cccccc;
 }
-/* line 214, style.scss */
+/* line 264, style.scss */
 .chzn-container .chzn-results li {
   text-indent: 42px;
   background-position: 5px 50%;
@@ -909,14 +975,14 @@ header {
   line-height: 2em;
 }
 
-/* line 222, style.scss */
+/* line 272, style.scss */
 .chzn-container .chzn-results {
   max-height: 164px;
   -webkit-transform: rotateY(0);
   -webkit-backface-visibility: hidden;
 }
 
-/* line 226, style.scss */
+/* line 276, style.scss */
 .button {
   background-color: #40ede8;
   border: 1px solid;
@@ -928,15 +994,23 @@ header {
   background: -moz-linear-gradient(#2ee1ff 0%, #0ad9fc 49%, #04d5f7 50%, #00b8d6 100%);
   background: -o-linear-gradient(#2ee1ff 0%, #0ad9fc 49%, #04d5f7 50%, #00b8d6 100%);
   background: linear-gradient(#2ee1ff 0%, #0ad9fc 49%, #04d5f7 50%, #00b8d6 100%);
-  text-shadow: 0 1px 1px #042a29;
+  text-shadow: 0 1px 0px #064140;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 1px, rgba(255, 255, 255, 0.5) 0 1px 0 inset;
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 1px, rgba(255, 255, 255, 0.5) 0 1px 0 inset;
   box-shadow: rgba(0, 0, 0, 0.1) 0 1px 1px, rgba(255, 255, 255, 0.5) 0 1px 0 inset;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
   font-weight: bold;
   font-size: 1.2em;
   padding: 12px;
 }
-/* line 47, style.scss */
+/* line 50, style.scss */
 .button:hover {
   /*@include background(linear-gradient(lighten($start-color, 5%) 0, $start-color 50%, $end-color 50%, darken($end-color, 4%) 100%));*/
   /* Improved this function to be less of a harsh gradient */
@@ -946,26 +1020,26 @@ header {
   background: -o-linear-gradient(#52e7ff 0%, #2ce1ff 49%, #21dfff 50%, #00d7fa 100%);
   background: linear-gradient(#52e7ff 0%, #2ce1ff 49%, #21dfff 50%, #00d7fa 100%);
 }
-/* line 56, style.scss */
+/* line 59, style.scss */
 .button, .button:visited {
   color: white;
 }
-/* line 59, style.scss */
+/* line 62, style.scss */
 .button.inset {
   -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 inset, rgba(255, 255, 255, 0.4) 0 1px 0;
   -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 inset, rgba(255, 255, 255, 0.4) 0 1px 0;
   box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 inset, rgba(255, 255, 255, 0.4) 0 1px 0;
 }
-/* line 80, style.scss */
+/* line 83, style.scss */
 .button.loading, .button[disabled], .button[disabled]:hover {
   background-color: #40ede8;
 }
-/* line 83, style.scss */
+/* line 86, style.scss */
 .button.disabled, .button[disabled] {
   color: #0d8784;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
-/* line 86, style.scss */
+/* line 89, style.scss */
 .button:active:not([disabled]):not(.disabled) {
   -webkit-box-shadow: inset 0 2px 3px #0d8784;
   -moz-box-shadow: inset 0 2px 3px #0d8784;
@@ -977,7 +1051,7 @@ header {
   background: linear-gradient(#80ffd1, #00dbff);
 }
 
-/* line 232, style.scss */
+/* line 286, style.scss */
 .success-title {
   text-indent: -119988px;
   overflow: hidden;
@@ -989,7 +1063,7 @@ header {
   margin: 69px auto 10px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 232, style.scss */
+  /* line 286, style.scss */
   .success-title {
     -webkit-background-size: 241px auto;
     -moz-background-size: 241px auto;
@@ -999,123 +1073,13 @@ header {
   }
 }
 
-/* line 241, style.scss */
-.prop-list li {
-  margin: 0.2em;
-  float: left;
-}
-/* line 245, style.scss */
-.prop-list li:nth-child(2) .icon {
-  background-image: url("/images/congrats-prop.png");
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 245, style.scss */
-  .prop-list li:nth-child(2) .icon {
-    -webkit-background-size: 90px auto;
-    -moz-background-size: 90px auto;
-    -o-background-size: 90px auto;
-    background-size: 90px auto;
-    background-image: url("/images/congrats-prop@2x.png");
-  }
-}
-/* line 248, style.scss */
-.prop-list li:nth-child(3) .icon {
-  background-image: url("/images/good-job-prop.png");
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 248, style.scss */
-  .prop-list li:nth-child(3) .icon {
-    -webkit-background-size: 90px auto;
-    -moz-background-size: 90px auto;
-    -o-background-size: 90px auto;
-    background-size: 90px auto;
-    background-image: url("/images/good-job-prop@2x.png");
-  }
-}
-/* line 251, style.scss */
-.prop-list li:nth-child(4) .icon {
-  background-image: url("/images/inspirational-prop.png");
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 251, style.scss */
-  .prop-list li:nth-child(4) .icon {
-    -webkit-background-size: 90px auto;
-    -moz-background-size: 90px auto;
-    -o-background-size: 90px auto;
-    background-size: 90px auto;
-    background-image: url("/images/inspirational-prop@2x.png");
-  }
-}
-/* line 254, style.scss */
-.prop-list li:nth-child(5) .icon {
-  background-image: url("/images/speedy-prop.png");
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 254, style.scss */
-  .prop-list li:nth-child(5) .icon {
-    -webkit-background-size: 90px auto;
-    -moz-background-size: 90px auto;
-    -o-background-size: 90px auto;
-    background-size: 90px auto;
-    background-image: url("/images/speedy-prop@2x.png");
-  }
-}
-/* line 257, style.scss */
-.prop-list li:nth-child(6) .icon {
-  background-image: url("/images/awesome-prop.png");
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 257, style.scss */
-  .prop-list li:nth-child(6) .icon {
-    -webkit-background-size: 90px auto;
-    -moz-background-size: 90px auto;
-    -o-background-size: 90px auto;
-    background-size: 90px auto;
-    background-image: url("/images/awesome-prop@2x.png");
-  }
-}
-/* line 260, style.scss */
-.prop-list li:nth-child(7) .icon {
-  background-image: url("/images/interesting-prop.png");
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 260, style.scss */
-  .prop-list li:nth-child(7) .icon {
-    -webkit-background-size: 90px auto;
-    -moz-background-size: 90px auto;
-    -o-background-size: 90px auto;
-    background-size: 90px auto;
-    background-image: url("/images/interesting-prop@2x.png");
-  }
-}
-/* line 263, style.scss */
-.prop-list li:nth-child(8) .icon {
-  background-image: url("/images/you-rock-prop.png");
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 263, style.scss */
-  .prop-list li:nth-child(8) .icon {
-    -webkit-background-size: 90px auto;
-    -moz-background-size: 90px auto;
-    -o-background-size: 90px auto;
-    background-size: 90px auto;
-    background-image: url("/images/you-rock-prop@2x.png");
-  }
-}
-/* line 267, style.scss */
-.prop-list .icon {
-  display: block;
-  width: 90px;
-  height: 90px;
+/* line 296, style.scss */
+.thanks-icon, .prop-list li:nth-child(1) .icon {
   background-image: url("/images/thanks-prop.png");
-  -webkit-transition: all 100ms linear;
-  -moz-transition: all 100ms linear;
-  -o-transition: all 100ms linear;
-  transition: all 100ms linear;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 267, style.scss */
-  .prop-list .icon {
+  /* line 296, style.scss */
+  .thanks-icon, .prop-list li:nth-child(1) .icon {
     -webkit-background-size: 90px auto;
     -moz-background-size: 90px auto;
     -o-background-size: 90px auto;
@@ -1123,7 +1087,132 @@ header {
     background-image: url("/images/thanks-prop@2x.png");
   }
 }
-/* line 273, style.scss */
+
+/* line 296, style.scss */
+.congrats-icon, .prop-list li:nth-child(2) .icon {
+  background-image: url("/images/congrats-prop.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 296, style.scss */
+  .congrats-icon, .prop-list li:nth-child(2) .icon {
+    -webkit-background-size: 90px auto;
+    -moz-background-size: 90px auto;
+    -o-background-size: 90px auto;
+    background-size: 90px auto;
+    background-image: url("/images/congrats-prop@2x.png");
+  }
+}
+
+/* line 296, style.scss */
+.good-job-icon, .prop-list li:nth-child(3) .icon {
+  background-image: url("/images/good-job-prop.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 296, style.scss */
+  .good-job-icon, .prop-list li:nth-child(3) .icon {
+    -webkit-background-size: 90px auto;
+    -moz-background-size: 90px auto;
+    -o-background-size: 90px auto;
+    background-size: 90px auto;
+    background-image: url("/images/good-job-prop@2x.png");
+  }
+}
+
+/* line 296, style.scss */
+.inspirational-icon, .prop-list li:nth-child(4) .icon {
+  background-image: url("/images/inspirational-prop.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 296, style.scss */
+  .inspirational-icon, .prop-list li:nth-child(4) .icon {
+    -webkit-background-size: 90px auto;
+    -moz-background-size: 90px auto;
+    -o-background-size: 90px auto;
+    background-size: 90px auto;
+    background-image: url("/images/inspirational-prop@2x.png");
+  }
+}
+
+/* line 296, style.scss */
+.speedy-icon, .prop-list li:nth-child(5) .icon {
+  background-image: url("/images/speedy-prop.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 296, style.scss */
+  .speedy-icon, .prop-list li:nth-child(5) .icon {
+    -webkit-background-size: 90px auto;
+    -moz-background-size: 90px auto;
+    -o-background-size: 90px auto;
+    background-size: 90px auto;
+    background-image: url("/images/speedy-prop@2x.png");
+  }
+}
+
+/* line 296, style.scss */
+.awesome-icon, .prop-list li:nth-child(6) .icon {
+  background-image: url("/images/awesome-prop.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 296, style.scss */
+  .awesome-icon, .prop-list li:nth-child(6) .icon {
+    -webkit-background-size: 90px auto;
+    -moz-background-size: 90px auto;
+    -o-background-size: 90px auto;
+    background-size: 90px auto;
+    background-image: url("/images/awesome-prop@2x.png");
+  }
+}
+
+/* line 296, style.scss */
+.interesting-icon, .prop-list li:nth-child(7) .icon {
+  background-image: url("/images/interesting-prop.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 296, style.scss */
+  .interesting-icon, .prop-list li:nth-child(7) .icon {
+    -webkit-background-size: 90px auto;
+    -moz-background-size: 90px auto;
+    -o-background-size: 90px auto;
+    background-size: 90px auto;
+    background-image: url("/images/interesting-prop@2x.png");
+  }
+}
+
+/* line 296, style.scss */
+.you-rock-icon, .prop-list li:nth-child(8) .icon {
+  background-image: url("/images/you-rock-prop.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 296, style.scss */
+  .you-rock-icon, .prop-list li:nth-child(8) .icon {
+    -webkit-background-size: 90px auto;
+    -moz-background-size: 90px auto;
+    -o-background-size: 90px auto;
+    background-size: 90px auto;
+    background-image: url("/images/you-rock-prop@2x.png");
+  }
+}
+
+/* line 300, style.scss */
+.prop-icon, .prop-list .icon {
+  display: block;
+  width: 90px;
+  height: 90px;
+}
+
+/* line 306, style.scss */
+.prop-list li {
+  margin: 0.2em;
+  float: left;
+}
+/* line 317, style.scss */
+.prop-list .icon {
+  -webkit-transition: all 100ms linear;
+  -moz-transition: all 100ms linear;
+  -o-transition: all 100ms linear;
+  transition: all 100ms linear;
+}
+/* line 321, style.scss */
 .prop-list .icon:active, .prop-list .icon:hover {
   -webkit-transform: translateY(10px);
   -moz-transform: translateY(10px);
@@ -1136,7 +1225,7 @@ header {
   -o-transform: scale(1.1, 1.1);
   transform: scale(1.1, 1.1);
 }
-/* line 278, style.scss */
+/* line 326, style.scss */
 .prop-list .title {
   display: block;
   margin: 0.4em 0 0.2em;
@@ -1145,7 +1234,7 @@ header {
   text-shadow: 0 1px 0 white;
 }
 
-/* line 299, style.scss */
+/* line 347, style.scss */
 input, select, textarea, .chzn-select, .chzn-container-multi .chzn-choices {
   padding: 0.5em;
   color: #888888;
@@ -1161,7 +1250,336 @@ input, select, textarea, .chzn-select, .chzn-container-multi .chzn-choices {
   box-shadow: white 0 1px 0, rgba(0, 0, 0, 0.3) 0 1px 1px inset;
 }
 
-/* line 307, style.scss */
+/* line 355, style.scss */
 textarea {
   min-height: 140px;
+}
+
+/* line 359, style.scss */
+.animated, .loaded #login-page .prop-icon, .loaded #login-page .prop-list .icon, .prop-list .loaded #login-page .icon, .loaded #login-page .title, .loaded #login-page .button {
+  -webkit-animation: 1s ease both;
+  -moz-animation: 1s ease both;
+  -ms-animation: 1s ease both;
+  -o-animation: 1s ease both;
+  animation: 1s ease both;
+}
+/* line 361, style.scss */
+.animated.slow, .loaded #login-page .slow.prop-icon, .loaded #login-page .prop-list .slow.icon, .prop-list .loaded #login-page .slow.icon, .loaded #login-page .slow.title, .loaded #login-page .slow.button {
+  -webkit-animation-duration: 3s;
+  -moz-animation-duration: 3s;
+  -ms-animation-duration: 3s;
+  -o-animation-duration: 3s;
+  animation-duration: 3s;
+}
+/* line 362, style.scss */
+.animated.fast, .loaded #login-page .fast.prop-icon, .loaded #login-page .prop-list .fast.icon, .prop-list .loaded #login-page .fast.icon, .loaded #login-page .fast.title, .loaded #login-page .fast.button {
+  -webkit-animation-duration: 0.35s;
+  -moz-animation-duration: 0.35s;
+  -ms-animation-duration: 0.35s;
+  -o-animation-duration: 0.35s;
+  animation-duration: 0.35s;
+}
+/* line 363, style.scss */
+.animated.none, .loaded #login-page .none.prop-icon, .loaded #login-page .prop-list .none.icon, .prop-list .loaded #login-page .none.icon, .loaded #login-page .none.title, .loaded #login-page .none.button {
+  -webkit-animation: blank 0.01s 1;
+  -moz-animation: blank 0.01s 1;
+  -ms-animation: blank 0.01s 1;
+  -o-animation: blank 0.01s 1;
+  animation: blank 0.01s 1;
+}
+/* line 364, style.scss */
+.animated, .loaded #login-page .prop-icon, .loaded #login-page .prop-list .icon, .prop-list .loaded #login-page .icon, .loaded #login-page .title, .loaded #login-page .button {
+  /*    removes shadows on all child elements when animating. Edit: Looks like crap, not sure how much it helps performance. 
+      text-shadow: 0 0 0 !important;
+      box-shadow: 0 0 0 !important;*/
+}
+
+/* line 378, style.scss */
+.bounceInDown, .loaded #login-page .prop-icon, .loaded #login-page .prop-list .icon, .prop-list .loaded #login-page .icon, .loaded #login-page .title {
+  -webkit-animation-name: bounceInDown;
+  -moz-animation-name: bounceInDown;
+  -ms-animation-name: bounceInDown;
+  -o-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+}
+
+/* line 378, style.scss */
+.bounceInUp, .loaded #login-page .button {
+  -webkit-animation-name: bounceInUp;
+  -moz-animation-name: bounceInUp;
+  -ms-animation-name: bounceInUp;
+  -o-animation-name: bounceInUp;
+  animation-name: bounceInUp;
+}
+
+@-moz-keyframes bounceInDown {
+  /* line 384, style.scss */
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  /* line 387, style.scss */
+  60% {
+    opacity: 1;
+    -moz-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  /* line 390, style.scss */
+  80% {
+    -moz-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  /* line 392, style.scss */
+  100% {
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes bounceInDown {
+  /* line 384, style.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  /* line 387, style.scss */
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  /* line 390, style.scss */
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  /* line 392, style.scss */
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-o-keyframes bounceInDown {
+  /* line 384, style.scss */
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  /* line 387, style.scss */
+  60% {
+    opacity: 1;
+    -o-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  /* line 390, style.scss */
+  80% {
+    -o-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  /* line 392, style.scss */
+  100% {
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-ms-keyframes bounceInDown {
+  /* line 384, style.scss */
+  0% {
+    opacity: 0;
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  /* line 387, style.scss */
+  60% {
+    opacity: 1;
+    -ms-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  /* line 390, style.scss */
+  80% {
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  /* line 392, style.scss */
+  100% {
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceInDown {
+  /* line 384, style.scss */
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+
+  /* line 387, style.scss */
+  60% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+
+  /* line 390, style.scss */
+  80% {
+    transform: translateY(-10px);
+  }
+
+  /* line 392, style.scss */
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@-moz-keyframes bounceInUp {
+  /* line 398, style.scss */
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+
+  /* line 401, style.scss */
+  60% {
+    opacity: 1;
+    -moz-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  /* line 404, style.scss */
+  80% {
+    -moz-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+
+  /* line 406, style.scss */
+  100% {
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes bounceInUp {
+  /* line 398, style.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+
+  /* line 401, style.scss */
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  /* line 404, style.scss */
+  80% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+
+  /* line 406, style.scss */
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-o-keyframes bounceInUp {
+  /* line 398, style.scss */
+  0% {
+    opacity: 0;
+    -o-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+
+  /* line 401, style.scss */
+  60% {
+    opacity: 1;
+    -o-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  /* line 404, style.scss */
+  80% {
+    -o-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+
+  /* line 406, style.scss */
+  100% {
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-ms-keyframes bounceInUp {
+  /* line 398, style.scss */
+  0% {
+    opacity: 0;
+    -ms-transform: translateY(2000px);
+    transform: translateY(2000px);
+  }
+
+  /* line 401, style.scss */
+  60% {
+    opacity: 1;
+    -ms-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  /* line 404, style.scss */
+  80% {
+    -ms-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+
+  /* line 406, style.scss */
+  100% {
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceInUp {
+  /* line 398, style.scss */
+  0% {
+    opacity: 0;
+    transform: translateY(2000px);
+  }
+
+  /* line 401, style.scss */
+  60% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+
+  /* line 404, style.scss */
+  80% {
+    transform: translateY(10px);
+  }
+
+  /* line 406, style.scss */
+  100% {
+    transform: translateY(0);
+  }
 }

@@ -138,6 +138,10 @@ $ ->
       doneOut()
     deferred.promise()
 	
+  # a small dash of custom code
+
+  $('body').addClass 'loaded'
+
 	$("input:submit").click ->
 		$('form').submit()
 		$(@).val "Sending..."

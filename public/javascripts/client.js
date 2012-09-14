@@ -139,6 +139,7 @@
       }
       return deferred.promise();
     };
+    $('body').addClass('loaded');
     $("input:submit").click(function() {
       $('form').submit();
       $(this).val("Sending...");

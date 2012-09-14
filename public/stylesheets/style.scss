@@ -1,5 +1,6 @@
 @import "compass";
 @import "compass/reset";
+@import 'animation';
 @import 'chosen';
 @import 'page-transitions';
 
@@ -17,6 +18,8 @@ $gradient-support: true;
 $hover-support: true;
 $width: 340px;
 $header-height: 49px;
+
+$props : thanks, congrats, good-job, inspirational, speedy, awesome, interesting, you-rock;
 
 @mixin enable-hardware-acceleration { -webkit-transform: rotateY(0); -webkit-backface-visibility: hidden; }
 
@@ -54,7 +57,7 @@ $header-height: 49px;
     }
     @if not $dark {
       &, &:visited { color: lighten($end-color, 70%);}
-      @include single-text-shadow(darken($button-border-color, 20%), 0, 1px, 1px);
+      @include single-text-shadow(darken($button-border-color, 15%), 0, 1px, 0px);
       @include glass-shadow(0.5);
       &.inset {
         @include glass-inset-shadow(0.6);
@@ -126,6 +129,7 @@ html * {
 body, textarea, input, select {
 	font: 14px Helvetica, Arial, sans-serif;
 }
+strong { font-weight: bold; }
 body {
 	color: $font-light-color;
   padding: 0.5em;
@@ -140,6 +144,14 @@ html, .mobile-viewport {
 a {
   color: #00B7FF;
 }
+
+h3 {
+	@include white-shadow;
+	font-weight: normal;
+	font-size: 1.4em;
+	line-height: 1.1em;
+	text-align: center;
+}
 header {
 	@include background-image-retina('header');
 	-webkit-transform: rotateY(0);
@@ -152,7 +164,45 @@ header {
   height: $header-height;
   @include background-size(auto $header-height);
 }
-
+.loaded #login-page {
+	.prop-icon, .title {
+		@extend .animated;
+		@extend .bounceInDown;
+	}
+	.button {
+		@extend .animated;
+		@extend .bounceInUp;
+	}
+}
+#hero {
+	margin: 50px 0 30px !important;
+	// background: #FFF;
+	// @include border-radius(10px);
+	// border: 1px solid $border-color;
+	// border-bottom-color: darken($border-color, 15%);
+	height: 100px;
+	@include background-image-retina('paper-texture');
+	.prop-icon, .title {
+		opacity: 0;
+	}
+	.prop-icon {
+		opacity: 0.9;
+		margin: -15px 0 0 -15px;
+		float: left;
+	}
+	.title {
+		opacity: 0.9;
+		@include background-image-retina('hero-title');
+		background-position: 5px 40%;
+		background-repeat: no-repeat;
+		width: 210px;
+		height: 100px;
+		float: left;
+	}
+}
+#login-page {
+	.section { margin: 30px 0;}
+}
 #logo {
 	@include background-image-retina('logo');
 	background-repeat: no-repeat;
@@ -225,6 +275,10 @@ header {
 }
 .button {
 	@include button($link-color);
+	@include border-radius(5px);
+	text-decoration: none;
+	text-align: center;
+	display: block;
 	font-weight: bold;
 	font-size: 1.2em;
 	padding: 12px;
@@ -237,38 +291,32 @@ header {
 	display: block;
 	margin: $header-height + 20 auto 10px;
 }
+
+@each $prop in $props {
+	.#{$prop}-icon {
+		@include background-image-retina(#{$prop}-prop);
+	}
+}
+.prop-icon {
+	display: block;
+	width: 90px;
+	height: 90px;	
+}
 .prop-list {
 	li {
 		margin: 0.2em;
 		float: left;
 		// kids don't do this at home. In a rush.
-		&:nth-child(2) .icon {
-			@include background-image-retina('congrats-prop');
-		}
-		&:nth-child(3) .icon {
-			@include background-image-retina('good-job-prop');
-		}
-		&:nth-child(4) .icon {
-			@include background-image-retina('inspirational-prop');
-		}
-		&:nth-child(5) .icon {
-			@include background-image-retina('speedy-prop');
-		}
-		&:nth-child(6) .icon {
-			@include background-image-retina('awesome-prop');
-		}
-		&:nth-child(7) .icon {
-			@include background-image-retina('interesting-prop');
-		}
-		&:nth-child(8) .icon {
-			@include background-image-retina('you-rock-prop');
+		@for $n from 1 through length($props) {
+			&:nth-child(#{$n}) .icon {
+				@extend .#{nth($props, $n)}-icon;
+			}
+
 		}
 	}
 	.icon {
-		display: block;
-		width: 90px;
-		height: 90px;
-		@include background-image-retina('thanks-prop');
+		@extend .prop-icon;
+		// @include background-image-retina('thanks-prop');
 		@include single-transition(all, 100ms, linear);
 		&:active, &:hover {
 			@include translateY(10px);
@@ -307,3 +355,53 @@ input, select, textarea, .chzn-select, .chzn-container-multi .chzn-choices {
 textarea {
 	min-height: 140px;
 }
+
+.animated {
+  @include animation(1s ease both); 
+  &.slow { @include animation-duration(3s);     }
+  &.fast { @include animation-duration(0.350s); }
+  &.none { @include animation(blank 0.01s 1); }
+   & {
+  /*    removes shadows on all child elements when animating. Edit: Looks like crap, not sure how much it helps performance. 
+      text-shadow: 0 0 0 !important;
+      box-shadow: 0 0 0 !important;*/
+    }
+}
+
+// TODO: modify page-animation to use similar setup
+// Animations list
+$animations: bounceInDown, bounceInUp;
+
+
+// Creation of the different classes
+@each $anim in $animations {
+  .#{$anim} {
+    @include animation-name($anim); 
+  } 
+}
+
+@include keyframes(bounceInDown) {
+  0% {
+    opacity: 0;
+    @include translateY(-2000px); }
+  60% {
+    opacity: 1;
+    @include translateY(30px); }
+  80% {
+    @include translateY(-10px); }
+  100% {
+    @include translateY(0); } }
+
+
+// ---------------------------------------------------------------------------
+@include keyframes(bounceInUp) {
+  0% {
+    opacity: 0;
+    @include translateY(2000px); }
+  60% {
+    opacity: 1;
+    @include translateY(-30px); }
+  80% {
+    @include translateY(10px); }
+  100% {
+    @include translateY(0); } }

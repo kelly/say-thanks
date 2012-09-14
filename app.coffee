@@ -43,7 +43,6 @@ app.dynamicHelpers session: (req, res) ->
   req.session
 
 app.get "/", (req, res) ->
-  console.log 
   if req.session.oauthRequestToken 
     twit.getListMembers listID, '', (err, data) ->
       console.log err
@@ -55,17 +54,23 @@ app.get "/", (req, res) ->
           title: 'say:thanks'
           employees: employees
   else 
-    res.redirect '/sessions/connect'
+    res.redirect '/login'
 
 app.get "/success", (req, res) ->
   res.render 'success',
     locals:
       title: 'say:thanks'
 
-
 app.post "/", (req, res) ->
   twit.updateStatus "@#{req.body.entry.to} Hey, #{props[req.body.entry.prop]}! For doing #{req.body.entry.body} - from @#{req.session.screen_name}", (err, data) ->
     res.redirect '/success'
+
+app.get '/login', (req, res) ->
+  res.render 'login',
+    locals:
+      title: 'login'
+
+  # res.redirect '/sessions/connect'
 
 
 app.get "/entries", (req, res) ->
