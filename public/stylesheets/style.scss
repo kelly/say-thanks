@@ -1,0 +1,309 @@
+@import "compass";
+@import "compass/reset";
+@import 'chosen';
+@import 'page-transitions';
+
+
+$bg-color: #EC008C;
+$bg-light-color: #F9E8ED;
+$font-color: #888;
+$font-light-color: #AAA;
+$font-dark-color: #3B0023;
+$link-color: #00DBFF;
+$border-color: #CCC;
+$border-light-color: lighten($border-color, 15%);
+$highlight-color-1: #00ccff;
+$gradient-support: true;
+$hover-support: true;
+$width: 340px;
+$header-height: 49px;
+
+@mixin enable-hardware-acceleration { -webkit-transform: rotateY(0); -webkit-backface-visibility: hidden; }
+
+@mixin css3-glass-background($start-color, $end-color: darken($start-color, 5%)) {
+  /*@include background(linear-gradient(lighten($start-color, 5%) 0, $start-color 50%, $end-color 50%, darken($end-color, 4%) 100%));*/
+  /* Improved this function to be less of a harsh gradient */
+  @include background(linear-gradient(lighten($start-color, 6%) 0, mix($start-color, $end-color, 72%) 49%, mix($end-color, $start-color, 72%) 50%, darken($end-color, 6%) 100%));
+
+}
+@mixin glass-inset-shadow($inset-intensity: 0.3) {
+  @include box-shadow(transparentize(#FFF, $inset-intensity) 0 1px 0 inset, transparentize(#FFF, $inset-intensity) 0 1px 0);
+}
+@mixin glass-shadow($inset-intensity: 0.5, $shadow-intensity: 0.9, $shadow-size: 1px) {
+  @include box-shadow(transparentize(#000, $shadow-intensity) 0 1px $shadow-size, transparentize(#FFF, $inset-intensity) 0 1px 0 inset);
+}
+
+@mixin button($start-color, $end-color: adjust-hue(lighten($start-color, 25%), -30%), $dark: false, $glow: false, $glass: true, $class: button) {
+  $button-border-color: darken(mix($start-color, $end-color), 30%);
+  $button-background-color: mix($start-color, $end-color);
+  background-color: $button-background-color;
+  border: 1px solid;
+  border-color: darken($button-border-color, 10%) $button-border-color $button-border-color;
+  @if $gradient-support {
+    @if $glass {
+      @include css3-glass-background(lighten($start-color, 3%));
+      // @include background(linear-gradient(lighten($start-color, 3%) 0, $start-color 50%, $end-color 50%, darken($end-color, 3%) 100%), $end-color);
+      @if $hover-support {
+        &:hover {
+          @include css3-glass-background(lighten($start-color, 10%));
+          // @include background(linear-gradient(lighten($start-color, 15%) 0, $start-color 50%, $end-color 50%, $end-color 100%), $end-color);
+        }
+      }
+    } @else {
+      @include background(linear-gradient($start-color, $end-color));
+    }
+    @if not $dark {
+      &, &:visited { color: lighten($end-color, 70%);}
+      @include single-text-shadow(darken($button-border-color, 20%), 0, 1px, 1px);
+      @include glass-shadow(0.5);
+      &.inset {
+        @include glass-inset-shadow(0.6);
+      }
+      @if $glow {
+        @if $hover-support {   
+          &:hover:not(.inset):not(.disabled):not([disabled]) { @include glow-box(darken($button-border-color, 10%), $button-background-color, lighten($end-color, 70%)); }
+        }
+      }
+    } @else {
+      &, &:visited { color: darken($end-color, 70%); }
+      @include single-text-shadow(lighten($button-background-color, 15%), 0, 1px, 0);
+      @include glass-shadow(0.1);
+      &.inset {
+        @include glass-inset-shadow(0.1);
+      }
+      @if $glow {
+        @if $hover-support {
+          &:hover:not(.inset):not(.disabled):not([disabled]) { @include glow-box(darken($button-border-color, 10%), $button-background-color, darken($end-color, 70%)); }
+        }
+      }
+    }
+    &.loading, &[disabled], &[disabled]:hover {
+      background-color: $button-background-color;    
+    }
+    &.disabled, &[disabled] { 
+      color: $button-border-color;
+      @include single-text-shadow(rgba(255,255,255,0.5), 0, 1px, 0); }
+    &:active:not([disabled]):not(.disabled) { 
+      @include single-box-shadow($button-border-color, 0, 2px, 3px, false, inset);
+      @include background(linear-gradient($end-color, $start-color));
+      // @include transition((box-shadow background, 1s, ease-in)); 
+    }
+  } @else {
+    // @include button-sprite($class, $start-color, $end-color);
+    @if not $dark {
+      &, &:visited { color: lighten($end-color, 70%);}
+    } @else {
+      &, &:visited { color: darken($end-color, 70%); }
+    }
+  }
+}
+@mixin white-shadow {
+	@include single-text-shadow(#FFF, 0, 1px, 0);
+}
+@mixin background-image-retina($image, $extension: '.png') {
+  background-image: url('/images/' + $image + $extension);
+  @media only screen and (-webkit-min-device-pixel-ratio: 2)
+  {
+    @include background-size(image-width($image + $extension) auto);
+    background-image: url('/images/' + $image + '@2x' + $extension);
+  }
+}
+// only use if @2x background exists
+@mixin inline-background-image-retina($image, $extension: '.png') {
+  background-image: inline-image($image + $extension);
+  @media only screen and (-webkit-min-device-pixel-ratio: 2)
+  {
+    @include background-size(image-width($image + $extension) auto);
+    background-image: inline-image($image + '@2x' + $extension);
+  }
+}
+a {
+	-webkit-tap-highlight-color: rgba(0,0,0,0); 
+}
+html * {
+	@include box-sizing(border-box);
+}
+body, textarea, input, select {
+	font: 14px Helvetica, Arial, sans-serif;
+}
+body {
+	color: $font-light-color;
+  padding: 0.5em;
+  background: url('/images/bg.png');
+}
+html, .mobile-viewport { 
+	overflow: hidden;
+  margin: 0;
+  height: 99.9%;
+}
+.mobile-viewport { overflow-x: hidden;  }
+a {
+  color: #00B7FF;
+}
+header {
+	@include background-image-retina('header');
+	-webkit-transform: rotateY(0);
+	width: 100%;
+	position: fixed;
+	left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  height: $header-height;
+  @include background-size(auto $header-height);
+}
+
+#logo {
+	@include background-image-retina('logo');
+	background-repeat: no-repeat;
+	background-position: 50% 3px;
+	height: 5em;
+	display: block;
+	@include hide-text;
+	@include background-size(auto 36px);
+}
+.page-container {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: rotateY(0);
+}
+// .page-pre-in {
+//   opacity: 0;
+// }
+.page-container {
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding: 1em;
+	top: $header-height / 2;
+	display: none;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	&.active, &.in, &.out {
+		display: block !important;
+		opacity: 1;
+	}
+}
+.new-form {
+	width: 100%;
+}
+.stacked-form {
+	label, textarea, select, input {
+		display: block;
+	}
+	.section {
+		margin: 1em 0;
+	}
+	label { 
+		@include white-shadow;
+		font-size: 1.2em; 
+		line-height: 1.2em;
+		margin: 0.5em 0;
+		color: $font-light-color;
+	}
+}
+.search-choice {
+	line-height: 1.3em !important;
+}
+.chzn-container {
+	position: relative;
+	@include enable-hardware-acceleration;
+	width: 300px;
+	border-color: $border-color;
+	.chzn-results li {
+		text-indent: 42px;
+		background-position: 5px 50%;
+		@include background-size(32px 32px);
+		border-bottom: 1px solid $border-light-color;
+		line-height: 2em;
+	}
+}
+.chzn-container .chzn-results {
+	max-height: 164px;
+	@include enable-hardware-acceleration;
+}
+.button {
+	@include button($link-color);
+	font-weight: bold;
+	font-size: 1.2em;
+	padding: 12px;
+}
+.success-title {
+	@include hide-text;
+	@include background-image-retina('success');
+	width: 241px;
+	height: 152px;
+	display: block;
+	margin: $header-height + 20 auto 10px;
+}
+.prop-list {
+	li {
+		margin: 0.2em;
+		float: left;
+		// kids don't do this at home. In a rush.
+		&:nth-child(2) .icon {
+			@include background-image-retina('congrats-prop');
+		}
+		&:nth-child(3) .icon {
+			@include background-image-retina('good-job-prop');
+		}
+		&:nth-child(4) .icon {
+			@include background-image-retina('inspirational-prop');
+		}
+		&:nth-child(5) .icon {
+			@include background-image-retina('speedy-prop');
+		}
+		&:nth-child(6) .icon {
+			@include background-image-retina('awesome-prop');
+		}
+		&:nth-child(7) .icon {
+			@include background-image-retina('interesting-prop');
+		}
+		&:nth-child(8) .icon {
+			@include background-image-retina('you-rock-prop');
+		}
+	}
+	.icon {
+		display: block;
+		width: 90px;
+		height: 90px;
+		@include background-image-retina('thanks-prop');
+		@include single-transition(all, 100ms, linear);
+		&:active, &:hover {
+			@include translateY(10px);
+			@include scale(1.1);
+		}
+	}
+	.title {
+		display: block;
+		margin: 0.4em 0 0.2em;
+		font-size: 0.9em;
+		text-align: center;
+		@include white-shadow;
+	}
+	// a, .icon {
+	// 	@include border-radius(50%);
+	// 	display: block;
+	// }
+	// .icon {
+	// 	position: relative;
+	// 	width: 5em;
+	// 	height: 5em;
+	// 	margin: 0.45em;
+	// 	display: block;
+	// 	background: $highlight-color-1;
+	// }
+}
+
+input, select, textarea, .chzn-select, .chzn-container-multi .chzn-choices {
+	padding: 0.5em;
+	color: $font-color;
+	width: 100%;
+	border: 1px solid $border-color;
+	@include border-radius(5px);
+	@include box-shadow(#FFF 0 1px 0, rgba(0,0,0,0.3) 0 1px 1px inset);
+}
+textarea {
+	min-height: 140px;
+}
