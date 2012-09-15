@@ -20,7 +20,7 @@ twit = new twitter
 props = ['Thanks', 'Congrats', 'Good Job', 'Inspiring', 'Speedy', 'Awesome', 'Interesting', 'You Rock']
 
 consumer = ->
-  new oauth.OAuth("https://twitter.com/oauth/request_token", "https://twitter.com/oauth/access_token", twitterConsumerKey, twitterConsumerSecret, "1.0A", "http://gentle-garden-1084.herokuapp.com/sessions/callback", "HMAC-SHA1")
+  new oauth.OAuth("https://twitter.com/oauth/request_token", "https://twitter.com/oauth/access_token", twitterConsumerKey, twitterConsumerSecret, "1.0A", "http://say-thanks.herokuapp.com/sessions/callback", "HMAC-SHA1")
 
 app = express.createServer()
 
