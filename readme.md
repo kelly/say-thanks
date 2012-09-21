@@ -1,1 +1,4 @@
-An app for SAY hackathon 2012
+SAY:Thanks
+==========
+
+A quick hack for Say Hackathon 2012
